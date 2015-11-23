@@ -1,0 +1,108 @@
+---
+title: "DV_SProject: Refugee Flow"
+output: html_document
+---
+
+![](./Graphics/dragon.jpg) 
+
+## 00. Create/Clone a github repository
+
+![](./Graphics/cloneGit.png) 
+
+## 01. Create RStudio Project
+
+![](./Graphics/createRproj.png) 
+
+## 02. Setup RStudio 
+ Create three folders in RStudio Project:
+- **00 Doc**: where .Rmd and graphics folder live    
+- **01 Data**: where data, csv's will be stored  
+- **02 Tableau Visualizations**: Where visualizations are saved    
+
+## 03. Download .CSV Files
+
+Data taken from http://popstats.unhcr.org/
+
+![](./Graphics/csvsource.png)
+
+## 04. ETL & Create Table on Database
+
+CREATE TABLE Refugee_Stats (
+ Asylum_Country varchar2(4000),
+ Origin_Country varchar2(4000),
+ Record_Year number(38,4),
+ Refugees number(38,4),
+ Asylum_seekers number(38,4),
+ Returned_Refugees number(38,4),
+ IDPs number(38,4),
+ Returned_IDPs number(38,4),
+ Stateless_persons number(38,4),
+ Others_of_concern number(38,4),
+ Total_Population number(38,4)
+ );
+
+CREATE TABLE Yearly_Pop_By_Country (
+-- Change table_name to the table name you want.
+ Country_Name varchar2(4000),
+ Country_Code varchar2(4000),
+ Indicator_Name varchar2(4000),
+ Indicator_Code varchar2(4000),
+ X1960 number(38,4),
+ X1961 number(38,4),
+ X1962 number(38,4),
+ X1963 number(38,4),
+ X1964 number(38,4),
+ X1965 number(38,4),
+ X1966 number(38,4),
+ X1967 number(38,4),
+ X1968 number(38,4),
+ X1969 number(38,4),
+ X1970 number(38,4),
+ X1971 number(38,4),
+ X1972 number(38,4),
+ X1973 number(38,4),
+ X1974 number(38,4),
+ X1975 number(38,4),
+ X1976 number(38,4),
+ X1977 number(38,4),
+ X1978 number(38,4),
+ X1979 number(38,4),
+ X1980 number(38,4),
+ X1981 number(38,4),
+ X1982 number(38,4),
+ X1983 number(38,4),
+ X1984 number(38,4),
+ X1985 number(38,4),
+ X1986 number(38,4),
+ X1987 number(38,4),
+ X1988 number(38,4),
+ X1989 number(38,4),
+ X1990 number(38,4),
+ X1991 number(38,4),
+ X1992 number(38,4),
+ X1993 number(38,4),
+ X1994 number(38,4),
+ X1995 number(38,4),
+ X1996 number(38,4),
+ X1997 number(38,4),
+ X1998 number(38,4),
+ X1999 number(38,4),
+ X2000 number(38,4),
+ X2001 number(38,4),
+ X2002 number(38,4),
+ X2003 number(38,4),
+ X2004 number(38,4),
+ X2005 number(38,4),
+ X2006 number(38,4),
+ X2007 number(38,4),
+ X2008 number(38,4),
+ X2009 number(38,4),
+ X2010 number(38,4),
+ X2011 number(38,4),
+ X2012 number(38,4),
+ X2013 number(38,4),
+ X2014 number(38,4)
+ );
+
+## 05. Visualizations  
+
