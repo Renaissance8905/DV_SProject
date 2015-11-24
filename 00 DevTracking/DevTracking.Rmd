@@ -7,11 +7,13 @@ output: html_document
 
 ## 00. Create/Clone a github repository
 
-![](./Graphics/cloneGit.png) 
+![](./Graphics/cloneGit.png)
+
 
 ## 01. Create RStudio Project
 
 ![](./Graphics/createRproj.png) 
+
 
 ## 02. Setup RStudio 
  Create three folders in RStudio Project:
@@ -24,6 +26,7 @@ output: html_document
 Data taken from http://popstats.unhcr.org/
 
 ![](./Graphics/csvsource.png)
+
 
 ## 04. ETL & Create Table on Database
 
@@ -106,3 +109,16 @@ CREATE TABLE Yearly_Pop_By_Country (
 
 ## 05. Visualizations  
 
+### A Look at Migration Out of Vietnam
+
+Description: 
+
+This visualization looks at the number of refugees coming out of Vietnam over the years 1964-2008 (filter: Origin Country by Vietnam). The other filter is to ignore any value that is null. The result is a bar chart plotting aggregated number of refugees versus year, colored by asylum country, with a reference line as the average over all years.
+
+Comments:
+
+- We can see clearly that there was an abrupt and permanent increase in the number of refugees in 1979. Though showing a lag in time, this corresponds to the end of the Vietnam War, resulting in the 1975 Union of the Communist North & Capitalist South of Vietnam, with the North holding political power. Hence, the data presents the large number of refugees dissenting the new political regime that sought for asylum in other countries.
+- China (colored pink in the bar chart), Vietnam's "big brother", has welcomed the largest portion of Vietnamese refugees.
+- The United States (colored blue in the bar chart), also has also taken in quite a number of Vietnamese refugees since 1988. This is interesting considering its involvement in the Vietnam War. (This is 13 years after the war.)
+
+### PUT LINK TO SHINY APP HERE: ......
