@@ -1,5 +1,5 @@
 ---
-title: "DV_SProject: Refugee Flow"
+title: "DV_SProject: Shiny app for Refugee Flow"
 output: html_document
 ---
 
@@ -7,11 +7,11 @@ output: html_document
 
 ## 00. Create/Clone a github repository
 
-![](./Graphics/cloneGit.png) 
+```![](./Graphics/cloneGit.png)``` 
 
 ## 01. Create RStudio Project
 
-![](./Graphics/createRproj.png) 
+```![](./Graphics/createRproj.png)``` 
 
 ## 02. Setup RStudio 
  Create three folders in RStudio Project:
@@ -23,7 +23,7 @@ output: html_document
 
 Data taken from http://popstats.unhcr.org/
 
-![](./Graphics/csvsource.png)
+```#![](./Graphics/csvsource.png)```
 
 ## 04. ETL & Create Table on Database
 
