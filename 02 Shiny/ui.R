@@ -11,9 +11,7 @@ dashboardPage(
     sidebarMenu(
       menuItem("James' Crosstab", tabName = "crosstab", icon = icon("dashboard")),
       menuItem("Quan's Barchart", tabName = "barchart", icon = icon("th")),
-      menuItem("Blending", tabName = "blending", icon = icon("th")),
-      menuItem("Map", tabName = "map", icon = icon("th")),
-      menuItem("Table", tabName = "table", icon = icon("th"))
+      menuItem("Blending", tabName = "blending", icon = icon("th"))
     )
   ),
   dashboardBody(
@@ -39,16 +37,6 @@ dashboardPage(
       tabItem(tabName = "blending",
               actionButton(inputId = "clicks3",  label = "Click me"),
               plotOutput("distPlot3")
-      ),
-      
-      # Fourth tab content
-      tabItem(tabName = "map",
-              leafletOutput("map")
-      ),
-      
-      # Fifth tab content
-      tabItem(tabName = "table",
-              dataTableOutput("table")
       )
     )
   )
