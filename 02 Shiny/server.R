@@ -10,7 +10,7 @@ require(DT)
 
 shinyServer(function(input, output) {
   
-  output$distPlot1 <- renderPlot(width=1100,{
+  output$distPlot1 <- renderPlot({
     # Start your code here.
     
     # The following is equivalent to KPI Story 2 Sheet 2 and Parameters Story 3 in "Crosstabs, KPIs, Barchart.twb"
@@ -150,29 +150,11 @@ shinyServer(function(input, output) {
     return(plot)
   }) 
   
-  dfQ <- data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
-"""select ASYLUM_COUNTRY, RECORD_YEAR, REFUGEES, ORIGIN_COUNTRY from Refugee_Stats;"""')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_cjs2599', PASS='orcl_cjs2599', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)));
-  
-  dfQ <- dfQ %>% filter (as.character(ORIGIN_COUNTRY) == "Viet Nam", as.numeric(as.character(REFUGEES)) != "null") %>% group_by(RECORD_YEAR) %>% arrange(desc(as.character(ASYLUM_COUNTRY)))
-  
-  dfQ2 <- dfQ %>% group_by(RECORD_YEAR) %>% summarise(sum_refugees = sum(as.numeric(as.character(REFUGEES))))
-  
-  output$distPlot2 <- renderPlot(height=600, width=1100, {
-    pQ <- ggplot(dfQ, aes(x=as.character(RECORD_YEAR), y = as.numeric(as.character(REFUGEES)), fill = as.character(ASYLUM_COUNTRY))) + 
-      geom_bar(stat = "identity") + 
-      labs(title='A Look at Migration Out of Vietnam') + 
-      labs(x="Year", y="Refugees")
-    
-    pQ <- pQ  +
-      geom_text(data = dfQ2, 
-                aes(y = sum_refugees, label = sum_refugees, fill = NULL), size = 4,
-                vjust = -0.5) +
-      geom_hline(data = dfQ2, aes(yintercept = mean(as.numeric(as.character(sum_refugees))))) + 
-      annotate("text", x = 1.5, y = 310000, label = 301027, size = 4)
-    
-    pQ
+  # Begin code for Fourth Tab:
+  output$map <- renderLeaflet({leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17) %>% addPopups(-93.65, 42.0285, 'Here is the Department of Statistics, ISU')
   })
-
   
-  # Begin code for third Tab:
+  # Begin code for Fifth Tab:
+  output$table <- renderDataTable({datatable(df1())
+  })
 })
